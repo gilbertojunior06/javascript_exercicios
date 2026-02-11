@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercícios de JavaScript</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    button { margin: 5px; padding: 10px; }
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+      white-space: pre-line; /* permite quebra de linha */
+    }
+  </style>
+</head>
+<body>
+  <h1>Exercícios de JavaScript</h1>
+  <p>Clique em um botão para rodar o exercício. O resultado aparecerá abaixo.</p>
+
+  <div>
+    <button onclick="runEx('1.bem.js')">Exercício 1</button>
+    <button onclick="runEx('2.soma_simples.js')">Exercício 2</button>
+    <button onclick="runEx('3.calculadora_de_idade.js')">Exercício 3</button>
+    <button onclick="runEx('4.media_semestral.js')">Exercício 4</button>
+    <button onclick="runEx('5.conversor_medidas.js')">Exercício 5</button>
+    <button onclick="runEx('6.gorgeta_garcon.js')">Exercício 6</button>
+    <button onclick="runEx('7.area_retangulo.js')">Exercício 7</button>
+    <button onclick="runEx('8.antecessor_sucessor.js')">Exercício 8</button>
+    <button onclick="runEx('9.maior_idade.js')">Exercício 9</button>
+    <button onclick="runEx('10.par_impar.js')">Exercício 10</button>
+    <button onclick="runEx('11.aprovacao_escolar.js')">Exercício 11</button>
+    <button onclick="runEx('12.qual_maior_menor.js')">Exercício 12</button>
+    <button onclick="runEx('13.calculadora_imc.js')">Exercício 13</button>
+    <button onclick="runEx('14.login_simples.js')">Exercício 14</button>
+    <button onclick="runEx('15.desconto_compra.js')">Exercício 15</button>
+    <button onclick="runEx('16.contagem_regreciva.js')">Exercício 16</button>
+    <button onclick="runEx('17.tabuada.js')">Exercício 17</button>
+    <button onclick="runEx('18.soma_acumulada.js')">Exercício 18</button>
+    <button onclick="runEx('19.numero_pares.js')">Exercício 19</button>
+    <button onclick="runEx('20.fatorial_simples.js')">Exercício 20</button>
+    <button onclick="runEx('21.lista_compra.js')">Exercício 21</button>
+    <button onclick="runEx('22.busca_lista.js')">Exercício 22</button>
+    <button onclick="runEx('23.inversao_arrays.js')">Exercício 23</button>
+    <button onclick="runEx('24.funcao_soma.js')">Exercício 24</button>
+    <button onclick="runEx('25.desafio_final.js')">Exercício 25</button>
+  </div>
+
+  <div id="output">Resultado aparecerá aqui...</div>
+
+  <script>
+    function runEx(file) {
+      let oldScript = document.getElementById("exerciseScript");
+      if (oldScript) oldScript.remove();
+
+      let script = document.createElement("script");
+      script.src = file;
+      script.id = "exerciseScript";
+      document.body.appendChild(script);
+    }
+
+    function showResult(msg) {
+      document.getElementById("output").innerText = msg;
+    }
+
+    // Redefine console.log para usar showResult
+    console.log = function(...args) {
+      let mensagem = args.map(a =>
+        (typeof a === "object" ? JSON.stringify(a) : a)
+      ).join(" ");
+      showResult(mensagem);
+    };
+  </script>
+</body>
+</html>
